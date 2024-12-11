@@ -1,0 +1,19 @@
+############
+Installation
+############
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+
+======
+Docker
+======
+
+===============
+Explorer projet
+===============
+
+.. code-block:: console
+   

@@ -1,0 +1,113 @@
+###############
+Getting Started
+###############
+
+.. toctree::
+   :titlesonly:
+   :hidden:
+
+
+============
+Using Docker
+============
+
+
+Use Docker for the first time
+------------------------------
+
+Create a folder and pull 
+
+à inserer lien bitbucket
+
+In the folder, run ``setup_devenv.sh``, this script create a ``src`` folder and pull the explorer git.
+
+.. code-block:: console
+
+    ./setup_devenv.sh
+
+
+Then, run ``docker-build-iron.sh``, this script build the docker.
+
+.. code-block:: console
+
+    ./docker-build-iron.sh
+
+You can now run the container.
+
+.. code-block:: console
+
+    ./docker-run-iron.sh
+
+In the container, run ``build.sh`` to run rosdep install and colcon build.
+
+.. code-block:: console
+    
+    ./build.sh
+
+You can, now, run any commands from the explorer project.
+
+To save the docker image for later, in the host, open a new terminal and run ``docker commit ros-iron-explorer ros-iron-explorer:prebuilt``.
+
+.. code-block:: console
+
+    docker commit ros-iron-explorer ros-iron-explorer:prebuilt
+
+
+Use an already existing Docker image
+------------------------------------
+
+If you saved the docker image, you can use the command ``./docker-run-explorer-iron-prebuilt.sh`` to run a prebuilt container.
+
+.. code-block:: console
+
+    ./docker-run-explorer-iron-prebuilt.sh
+
+
+In the container you need to colcon build and source the setup file and project file.
+
+.. code-block:: console
+    
+    colcon build
+    . source.sh
+
+You can, now, run any commands from the explorer project.
+
+
+Use Tmux
+--------
+
+Tmux is a terminal multiplexer, it allows you to create several "pseudo terminals" from a single terminal. In our case it is really useful when using Docker.
+
+To start using tmux, type ``tmux`` on your terminal. This command launches a tmux server and creates a default session with a single window.
+
+.. code-block:: console
+    
+    tmux
+
+You can, now, run any commands or programs as you normally would.
+
+.. tip:: 
+    
+    To split the current pane with a horizontal line : ``ctrl`` + ``b`` + ``"``
+
+.. tip::
+
+    To split the current pane with a vertical line : ``ctrl`` + ``b`` + ``%``
+
+.. tip::
+
+    To be able to use the mouse : ``ctrl`` + ``b`` + ``:`` and write ``set mouse on`` in the console
+
+.. tip::
+
+    To copy-paste : hold ``shift`` and use the right click
+
+.. tip::
+
+    To close a panel :  write ``exit``
+
+.. tip::
+
+    To see more tips : https://tmuxcheatsheet.com/
+
+   

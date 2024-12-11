@@ -1,0 +1,35 @@
+Simulation using Gazebo Fortress
+================================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+
+Joint control
+-------------
+
+Intro 
+
+architecture
+.. image:: Images/joint_control.png
+
+
+.. code-block:: console
+
+    ros2 launch ros2_control_explorer joint_control.launch.py
+
+
+
+Cartesian control
+-----------------
+
+Intro 
+
+architecture
+.. image:: Images/joint_control.png
+
+.. code-block:: console
+
+    ros2 launch ros2_control_explorer cartesian_control.launch.py

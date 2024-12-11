@@ -1,0 +1,16 @@
+.. _View-robot:
+
+==========
+View robot
+==========
+
+To view the robot, open a terminal and launch the ``view_explorer.launch.py`` file from the ``ros2_control_explorer`` package.
+
+.. code-block:: console
+
+    ros2 launch ros2_control_explorer view_explorer.launch.py
+
+With the ``joint_state_publisher_gui`` you can now change the position of every joint.
+
+
+.. image:: Images/view_explorer.png

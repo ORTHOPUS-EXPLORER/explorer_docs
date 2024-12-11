@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Docker &mdash; Explorer 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Actuator" href="Actuator.html" />
+    <link rel="prev" title="Software" href="../Software.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Explorer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Installation.html#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Installation.html#explorer-projet">Explorer projet</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Software.html">Software</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#use-docker-for-the-first-time">Use Docker for the first time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-an-already-existing-docker-image">Use an already existing Docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-tmux">Use Tmux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Actuator.html">Actuator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Actuator.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actuator.html#use-an-actuator-with-vesc">Use an actuator with VESC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Explorer.html">Explorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Explorer.html#view-robot">View robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Explorer.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#joint-control">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#cartesian-control">Cartesian control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Explorer.html#simulation-using-vesc-simulation">Simulation using VESC simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id2">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id3">Cartesian control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Explorer.html#use-the-real-explorer">Use the real Explorer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id4">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id5">Cartesian control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Explorer-on-wheelchair.html">Explorer on wheelchair</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Explorer-on-wheelchair.html#view-robot">View robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Explorer-on-wheelchair.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Explorer-on-wheelchair.html#cartesian-control">Cartesian control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware.html">Hardware</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Firmware.html">Firmware</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Explorer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Software.html">Software</a></li>
+      <li class="breadcrumb-item active">Using Docker</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Software/Using-Docker.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-docker">
+<h1>Using Docker<a class="headerlink" href="#using-docker" title="Link to this heading"></a></h1>
+<section id="use-docker-for-the-first-time">
+<h2>Use Docker for the first time<a class="headerlink" href="#use-docker-for-the-first-time" title="Link to this heading"></a></h2>
+<p>Create a folder and pull</p>
+<p>à inserer lien bitbucket</p>
+<p>In the folder, run <code class="docutils literal notranslate"><span class="pre">setup_devenv.sh</span></code>, this script create a <code class="docutils literal notranslate"><span class="pre">src</span></code> folder and pull the explorer git.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./setup_devenv.sh</span>
+</pre></div>
+</div>
+<p>Then, run <code class="docutils literal notranslate"><span class="pre">docker-build-iron.sh</span></code>, this script build the docker.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-build-iron.sh</span>
+</pre></div>
+</div>
+<p>You can now run the container.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-iron.sh</span>
+</pre></div>
+</div>
+<p>In the container, run <code class="docutils literal notranslate"><span class="pre">build.sh</span></code> to run rosdep install and colcon build.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./build.sh</span>
+</pre></div>
+</div>
+<p>You can, now, run any commands from the explorer project.</p>
+<p>To save the docker image for later, in the host, open a new terminal and run <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">commit</span> <span class="pre">ros-iron-explorer</span> <span class="pre">ros-iron-explorer:prebuilt</span></code>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker commit ros-iron-explorer ros-iron-explorer:prebuilt</span>
+</pre></div>
+</div>
+</section>
+<section id="use-an-already-existing-docker-image">
+<h2>Use an already existing Docker image<a class="headerlink" href="#use-an-already-existing-docker-image" title="Link to this heading"></a></h2>
+<p>If you saved the docker image, you can use the command <code class="docutils literal notranslate"><span class="pre">./docker-run-explorer-iron-prebuilt.sh</span></code> to run a prebuilt container.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-explorer-iron-prebuilt.sh</span>
+</pre></div>
+</div>
+<p>In the container you need to colcon build and source the setup file and project file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">colcon build</span>
+<span class="go">./source.sh</span>
+</pre></div>
+</div>
+<p>You can, now, run any commands from the explorer project.</p>
+</section>
+<section id="use-tmux">
+<h2>Use Tmux<a class="headerlink" href="#use-tmux" title="Link to this heading"></a></h2>
+<p>Tmux is a terminal multiplexer, it allows you to create several “pseudo terminals” from a single terminal. In our case it is really useful when using Docker.</p>
+<p>To start using tmux, type <code class="docutils literal notranslate"><span class="pre">tmux</span></code> on your terminal. This command launches a tmux server and creates a default session with a single window.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tmux</span>
+</pre></div>
+</div>
+<p>You can, now, run any commands or programs as you normally would.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To split the current pane with a horizontal line : <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">b</span></code> + <code class="docutils literal notranslate"><span class="pre">&quot;</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To split the current pane with a vertical line : <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">b</span></code> + <code class="docutils literal notranslate"><span class="pre">%</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To be able to use the mouse : <code class="docutils literal notranslate"><span class="pre">ctrl</span></code> + <code class="docutils literal notranslate"><span class="pre">b</span></code> + <code class="docutils literal notranslate"><span class="pre">:</span></code> and write <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">mouse</span> <span class="pre">on</span></code> in the console</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To copy-paste : hold <code class="docutils literal notranslate"><span class="pre">shift</span></code> and use the right click</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To close a panel :  write <code class="docutils literal notranslate"><span class="pre">exit</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To see more tips : <a class="reference external" href="https://tmuxcheatsheet.com/">https://tmuxcheatsheet.com/</a></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Software.html" class="btn btn-neutral float-left" title="Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Actuator.html" class="btn btn-neutral float-right" title="Actuator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Isea JEAN.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVD5Z6G6NH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EVD5Z6G6NH', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

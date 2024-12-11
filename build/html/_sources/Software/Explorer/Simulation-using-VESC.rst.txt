@@ -1,0 +1,30 @@
+.. _Sim-VESC-Explorer:
+
+================================
+Simulation using VESC simulation
+================================
+
+Joint control
+-------------
+
+.. code-block:: console
+
+    ros2 run pyvesc_explorer app_sim
+
+.. code-block:: console
+
+    ros2 launch ros2_control_explorer explorer_joint.launch.py
+
+
+Cartesian control
+-----------------
+
+.. code-block:: console
+
+    ros2 run pyvesc_explorer app_sim
+
+.. code-block:: console
+
+    ros2 launch ros2_control_explorer explorer_cartesian.launch.py
+
+

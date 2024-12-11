@@ -1,0 +1,7 @@
+########
+Hardware
+########
+
+.. toctree::
+   :titlesonly:
+   :hidden:

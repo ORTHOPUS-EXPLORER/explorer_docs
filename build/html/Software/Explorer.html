@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explorer &mdash; Explorer 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Explorer on wheelchair" href="Explorer-on-wheelchair.html" />
+    <link rel="prev" title="Actuator" href="Actuator.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Explorer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Getting_Started.html#using-docker">Using Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#use-docker-for-the-first-time">Use Docker for the first time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#use-an-already-existing-docker-image">Use an already existing Docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#use-tmux">Use Tmux</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Software.html">Software</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Actuator.html">Actuator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Actuator.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actuator.html#use-an-actuator-with-vesc">Use an actuator with VESC</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Explorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#view-robot">View robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#joint-control">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cartesian-control">Cartesian control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-using-vesc-simulation">Simulation using VESC simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Cartesian control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-real-explorer">Use the real Explorer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#first-use-of-your-explorer">First use of your Explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Cartesian control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Explorer-on-wheelchair.html">Explorer on wheelchair</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Explorer-on-wheelchair.html#view-robot">View robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Explorer-on-wheelchair.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Explorer-on-wheelchair.html#cartesian-control">Cartesian control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware.html">Hardware</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Firmware.html">Firmware</a><ul class="simple">
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Explorer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Software.html">Software</a></li>
+      <li class="breadcrumb-item active">Explorer</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Software/Explorer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="explorer">
+<span id="id1"></span><h1>Explorer<a class="headerlink" href="#explorer" title="Link to this heading"></a></h1>
+<section id="view-robot">
+<h2>View robot<a class="headerlink" href="#view-robot" title="Link to this heading"></a></h2>
+<p>To view the robot, open a terminal and launch the <code class="docutils literal notranslate"><span class="pre">view_explorer.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_explorer view_explorer.launch.py</span>
+</pre></div>
+</div>
+<p>With the <code class="docutils literal notranslate"><span class="pre">joint_state_publisher_gui</span></code> you can now change the position of every joint.</p>
+<img alt="../_images/view_explorer.png" src="../_images/view_explorer.png" />
+</section>
+<section id="simulation-using-gazebo-fortress">
+<h2>Simulation using Gazebo Fortress<a class="headerlink" href="#simulation-using-gazebo-fortress" title="Link to this heading"></a></h2>
+<section id="joint-control">
+<h3>Joint control<a class="headerlink" href="#joint-control" title="Link to this heading"></a></h3>
+<img alt="../_images/joint_control.png" src="../_images/joint_control.png" />
+<p>To launch the simulation in Gazebo with joint control, launch the <code class="docutils literal notranslate"><span class="pre">joint_control.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_explorer joint_control.launch.py</span>
+</pre></div>
+</div>
+<p>This script launches RViz, Gazebo, the robot controller, and all necessary files to send commands to the controller.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching the simulation</p>
+</div>
+<p>To control the robot, you can use the GUI :</p>
+<img alt="../_images/GUI_joint.png" src="../_images/GUI_joint.png" />
+<p>or an Xbox One controller :</p>
+<img alt="../_images/xbox_controller.png" src="../_images/xbox_controller.png" />
+</section>
+<section id="cartesian-control">
+<h3>Cartesian control<a class="headerlink" href="#cartesian-control" title="Link to this heading"></a></h3>
+<p>To launch the simulation in Gazebo with cartesian control, launch the <code class="docutils literal notranslate"><span class="pre">cartesian_control.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_explorer cartesian_control.launch.py</span>
+</pre></div>
+</div>
+<p>This script launches RViz, Gazebo, the robot controller, and all necessary files to send commands to the controller.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching the simulation</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t a 3D mouse, add <code class="docutils literal notranslate"><span class="pre">spacenav:=false</span></code> when launching the simulation</p>
+</div>
+<p>To control the robot, you can use the GUI :</p>
+<img alt="../_images/GUI_cartesian.png" src="../_images/GUI_cartesian.png" />
+<p>or 3D mouse.</p>
+</section>
+</section>
+<section id="simulation-using-vesc-simulation">
+<h2>Simulation using VESC simulation<a class="headerlink" href="#simulation-using-vesc-simulation" title="Link to this heading"></a></h2>
+<section id="id2">
+<h3>Joint control<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>To launch the VESC simulator, run the <code class="docutils literal notranslate"><span class="pre">app_sim</span></code> file from the <code class="docutils literal notranslate"><span class="pre">pyvesc_explorer</span></code> package:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 run pyvesc_explorer app_sim</span>
+</pre></div>
+</div>
+<p>In another terminal, launch the <code class="docutils literal notranslate"><span class="pre">explorer_joint.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package to start the robot controller and RVIZ:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_explorer explorer_joint.launch.py use_bridge:=true</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching <code class="docutils literal notranslate"><span class="pre">explorer_joint</span></code></p>
+</div>
+<p>To control the robot, you can use the GUI :</p>
+<img alt="../_images/GUI_joint.png" src="../_images/GUI_joint.png" />
+<p>or an Xbox One controller :</p>
+<img alt="../_images/xbox_controller.png" src="../_images/xbox_controller.png" />
+</section>
+<section id="id3">
+<h3>Cartesian control<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>To launch the VESC simulator, run the <code class="docutils literal notranslate"><span class="pre">app_sim</span></code> file from the <code class="docutils literal notranslate"><span class="pre">pyvesc_explorer</span></code> package:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 run pyvesc_explorer app_sim</span>
+</pre></div>
+</div>
+<p>In another terminal, launch the <code class="docutils literal notranslate"><span class="pre">explorer_cartesian.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package to start the robot controller and RVIZ:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_explorer explorer_cartesian.launch.py use_bridge:=true</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching <code class="docutils literal notranslate"><span class="pre">explorer_cartesian</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t have a 3D mouse, add <code class="docutils literal notranslate"><span class="pre">spacenav:=false</span></code> when launching <code class="docutils literal notranslate"><span class="pre">explorer_cartesian</span></code></p>
+</div>
+<p>To control the robot, you can use the GUI :</p>
+<img alt="../_images/GUI_cartesian.png" src="../_images/GUI_cartesian.png" />
+<p>or 3D mouse.</p>
+</section>
+</section>
+<section id="use-the-real-explorer">
+<h2>Use the real Explorer<a class="headerlink" href="#use-the-real-explorer" title="Link to this heading"></a></h2>
+<section id="first-use-of-your-explorer">
+<h3>First use of your Explorer<a class="headerlink" href="#first-use-of-your-explorer" title="Link to this heading"></a></h3>
+<p>If you are using your Explorer for the first time, go change the <code class="docutils literal notranslate"><span class="pre">vesc_joints_can_ids</span></code> parameter with the VESC can ids of your robot. This parameter is in the config file <code class="docutils literal notranslate"><span class="pre">explorer_vesc_hw.yaml</span></code> of the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package.</p>
+</section>
+<section id="id4">
+<h3>Joint control<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host run :.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./setcan0_500k_host.sh</span>
+</pre></div>
+</div>
+<p>This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.</p>
+<p>In the container, launch the <code class="docutils literal notranslate"><span class="pre">explorer_joint.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package to start the robot controller and RVIZ.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_explorer explorer_joint.launch.py use_bridge:=true</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching <code class="docutils literal notranslate"><span class="pre">explorer_joint</span></code></p>
+</div>
+<p>To control the robot, you can use the GUI :</p>
+<img alt="../_images/GUI_joint.png" src="../_images/GUI_joint.png" />
+<p>or an Xbox One controller :</p>
+<img alt="../_images/xbox_controller.png" src="../_images/xbox_controller.png" />
+</section>
+<section id="id5">
+<h3>Cartesian control<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host run :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./setcan0_500k_host.sh</span>
+</pre></div>
+</div>
+<p>This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.</p>
+<p>In the container, launch the <code class="docutils literal notranslate"><span class="pre">explorer_cartesian.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package to start the robot controller and RVIZ.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_explorer explorer_cartesian.launch.py use_bridge:=true</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching <code class="docutils literal notranslate"><span class="pre">explorer_cartesian</span></code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t have a 3D mouse, add <code class="docutils literal notranslate"><span class="pre">spacenav:=false</span></code> when launching <code class="docutils literal notranslate"><span class="pre">explorer_cartesian</span></code></p>
+</div>
+<p>To control the robot, you can use the GUI :</p>
+<img alt="../_images/GUI_cartesian.png" src="../_images/GUI_cartesian.png" />
+<p>or 3D mouse.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Actuator.html" class="btn btn-neutral float-left" title="Actuator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Explorer-on-wheelchair.html" class="btn btn-neutral float-right" title="Explorer on wheelchair" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Isea JEAN.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVD5Z6G6NH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EVD5Z6G6NH', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

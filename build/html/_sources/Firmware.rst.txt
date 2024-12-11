@@ -1,0 +1,7 @@
+########
+Firmware
+########
+
+.. toctree::
+   :titlesonly:
+   :hidden:

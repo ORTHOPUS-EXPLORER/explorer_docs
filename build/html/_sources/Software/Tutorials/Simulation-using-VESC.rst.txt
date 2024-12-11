@@ -1,0 +1,26 @@
+Simulation using VESC simulation
+================================
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+   :hidden:
+
+
+
+Joint control
+-------------
+
+
+.. code-block:: console
+
+    ros2 launch ros2_control_explorer explorer_joint.launch.py
+
+
+Cartesian control
+-----------------
+
+.. code-block:: console
+
+    ros2 launch ros2_control_explorer explorer_cartesian.launch.py
+    
