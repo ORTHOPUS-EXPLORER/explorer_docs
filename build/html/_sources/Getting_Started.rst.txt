@@ -11,9 +11,11 @@ Getting Started
 Using Docker
 ============
 
+Explorer's project
+-------------------
 
 Use Docker for the first time
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a folder and pull 
 
@@ -26,7 +28,7 @@ In the folder, run ``setup_devenv.sh``, this script create a ``src`` folder and 
     ./setup_devenv.sh
 
 
-Then, run ``docker-build-iron.sh``, this script build the docker.
+Then, run ``docker-build-iron.sh`` to build the docker.
 
 .. code-block:: console
 
@@ -36,7 +38,7 @@ You can now run the container.
 
 .. code-block:: console
 
-    ./docker-run-iron.sh
+    ./docker-run-explorer-iron.sh
 
 In the container, run ``build.sh`` to run rosdep install and colcon build.
 
@@ -52,9 +54,8 @@ To save the docker image for later, in the host, open a new terminal and run ``d
 
     docker commit ros-iron-explorer ros-iron-explorer:prebuilt
 
-
 Use an already existing Docker image
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you saved the docker image, you can use the command ``./docker-run-explorer-iron-prebuilt.sh`` to run a prebuilt container.
 
@@ -73,8 +74,60 @@ In the container you need to colcon build and source the setup file and project 
 You can, now, run any commands from the explorer project.
 
 
+VESC tool's  project
+--------------------
+
+Use Docker for the first time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a folder and pull 
+
+à inserer lien bitbucket
+
+In the folder, run ``setup_devenv.sh``, this script create a ``src`` folder and pull the explorer git.
+
+.. code-block:: console
+
+    ./setup_devenv.sh
+
+
+Then, run ``docker-build-vesc.sh`` to build the docker.
+
+.. code-block:: console
+
+    ./docker-build-vesc.sh
+
+
+You can now run the container.
+
+.. code-block:: console
+
+    ./docker-run-vesc.sh
+
+In the container, in the ``vesc_tool`` folder, and run ``build_lin_original_only``
+
+.. code-block:: console
+
+    ./build_lin_original_only
+
+Come back in the ``src`` folder and run ``make_fw.sh``
+
+.. code-block:: console
+
+    ./make_fw.sh
+
+Use an already existing Docker image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the VESC folder, you can now run the container.
+
+.. code-block:: console
+
+    ./docker-run-vesc.sh
+
+========
 Use Tmux
---------
+========
 
 Tmux is a terminal multiplexer, it allows you to create several "pseudo terminals" from a single terminal. In our case it is really useful when using Docker.
 

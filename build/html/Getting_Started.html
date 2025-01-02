@@ -48,14 +48,30 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#using-docker">Using Docker</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#use-docker-for-the-first-time">Use Docker for the first time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-an-already-existing-docker-image">Use an already existing Docker image</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-tmux">Use Tmux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#explorer-s-project">Explorer’s project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#use-docker-for-the-first-time">Use Docker for the first time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-an-already-existing-docker-image">Use an already existing Docker image</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#vesc-tool-s-project">VESC tool’s  project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Use Docker for the first time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Use an already existing Docker image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-tmux">Use Tmux</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Software.html">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Software/VESC_tool.html">VESC tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Software/VESC_tool.html#start-vesc-tool">Start VESC tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/VESC_tool.html#connect-using-usb">Connect using USB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/VESC_tool.html#connect-using-can">Connect using CAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/VESC_tool.html#change-the-can-id">Change the CAN ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Software/VESC_tool.html#change-the-position-0-of-an-actuator">Change the position 0 of an actuator</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="Software/Actuator.html">Actuator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Software/Actuator.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Software/Actuator.html#use-an-actuator-with-vesc">Use an actuator with VESC</a></li>
@@ -129,20 +145,22 @@
 </div>
 <section id="using-docker">
 <h2>Using Docker<a class="headerlink" href="#using-docker" title="Link to this heading"></a></h2>
+<section id="explorer-s-project">
+<h3>Explorer’s project<a class="headerlink" href="#explorer-s-project" title="Link to this heading"></a></h3>
 <section id="use-docker-for-the-first-time">
-<h3>Use Docker for the first time<a class="headerlink" href="#use-docker-for-the-first-time" title="Link to this heading"></a></h3>
+<h4>Use Docker for the first time<a class="headerlink" href="#use-docker-for-the-first-time" title="Link to this heading"></a></h4>
 <p>Create a folder and pull</p>
 <p>à inserer lien bitbucket</p>
 <p>In the folder, run <code class="docutils literal notranslate"><span class="pre">setup_devenv.sh</span></code>, this script create a <code class="docutils literal notranslate"><span class="pre">src</span></code> folder and pull the explorer git.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./setup_devenv.sh</span>
 </pre></div>
 </div>
-<p>Then, run <code class="docutils literal notranslate"><span class="pre">docker-build-iron.sh</span></code>, this script build the docker.</p>
+<p>Then, run <code class="docutils literal notranslate"><span class="pre">docker-build-iron.sh</span></code> to build the docker.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-build-iron.sh</span>
 </pre></div>
 </div>
 <p>You can now run the container.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-iron.sh</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-explorer-iron.sh</span>
 </pre></div>
 </div>
 <p>In the container, run <code class="docutils literal notranslate"><span class="pre">build.sh</span></code> to run rosdep install and colcon build.</p>
@@ -156,7 +174,7 @@
 </div>
 </section>
 <section id="use-an-already-existing-docker-image">
-<h3>Use an already existing Docker image<a class="headerlink" href="#use-an-already-existing-docker-image" title="Link to this heading"></a></h3>
+<h4>Use an already existing Docker image<a class="headerlink" href="#use-an-already-existing-docker-image" title="Link to this heading"></a></h4>
 <p>If you saved the docker image, you can use the command <code class="docutils literal notranslate"><span class="pre">./docker-run-explorer-iron-prebuilt.sh</span></code> to run a prebuilt container.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-explorer-iron-prebuilt.sh</span>
 </pre></div>
@@ -168,8 +186,45 @@
 </div>
 <p>You can, now, run any commands from the explorer project.</p>
 </section>
+</section>
+<section id="vesc-tool-s-project">
+<h3>VESC tool’s  project<a class="headerlink" href="#vesc-tool-s-project" title="Link to this heading"></a></h3>
+<section id="id1">
+<h4>Use Docker for the first time<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p>Create a folder and pull</p>
+<p>à inserer lien bitbucket</p>
+<p>In the folder, run <code class="docutils literal notranslate"><span class="pre">setup_devenv.sh</span></code>, this script create a <code class="docutils literal notranslate"><span class="pre">src</span></code> folder and pull the explorer git.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./setup_devenv.sh</span>
+</pre></div>
+</div>
+<p>Then, run <code class="docutils literal notranslate"><span class="pre">docker-build-vesc.sh</span></code> to build the docker.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-build-vesc.sh</span>
+</pre></div>
+</div>
+<p>You can now run the container.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-vesc.sh</span>
+</pre></div>
+</div>
+<p>In the container, in the <code class="docutils literal notranslate"><span class="pre">vesc_tool</span></code> folder, and run <code class="docutils literal notranslate"><span class="pre">build_lin_original_only</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./build_lin_original_only</span>
+</pre></div>
+</div>
+<p>Come back in the <code class="docutils literal notranslate"><span class="pre">src</span></code> folder and run <code class="docutils literal notranslate"><span class="pre">make_fw.sh</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./make_fw.sh</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4>Use an already existing Docker image<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>In the VESC folder, you can now run the container.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-vesc.sh</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
 <section id="use-tmux">
-<h3>Use Tmux<a class="headerlink" href="#use-tmux" title="Link to this heading"></a></h3>
+<h2>Use Tmux<a class="headerlink" href="#use-tmux" title="Link to this heading"></a></h2>
 <p>Tmux is a terminal multiplexer, it allows you to create several “pseudo terminals” from a single terminal. In our case it is really useful when using Docker.</p>
 <p>To start using tmux, type <code class="docutils literal notranslate"><span class="pre">tmux</span></code> on your terminal. This command launches a tmux server and creates a default session with a single window.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">tmux</span>
@@ -200,7 +255,6 @@
 <p class="admonition-title">Tip</p>
 <p>To see more tips : <a class="reference external" href="https://tmuxcheatsheet.com/">https://tmuxcheatsheet.com/</a></p>
 </div>
-</section>
 </section>
 </section>
 

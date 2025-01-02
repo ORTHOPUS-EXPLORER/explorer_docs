@@ -8,13 +8,13 @@ Explorer
 View robot
 ==========
 
-To view the robot, open a terminal and launch the ``view_explorer.launch.py`` file from the ``ros2_control_explorer`` package.
+To view the robot, open a terminal and launch the ``view_explorer.launch.py`` file from the ``ros2_control_explorer`` package:
 
 .. code-block:: console
 
     ros2 launch ros2_control_explorer view_explorer.launch.py
 
-With the ``joint_state_publisher_gui`` you can now change the position of every joint.
+With the ``joint_state_publisher_gui`` you can now change the position of each joint.
 
 
 .. image:: Images/view_explorer.png
@@ -26,10 +26,7 @@ Simulation using Gazebo Fortress
 Joint control
 -------------
 
-.. image:: Images/joint_control.png
-
-
-To launch the simulation in Gazebo with joint control, launch the ``joint_control.launch.py`` file from the ``ros2_control_explorer`` package.
+To launch the simulation in Gazebo with joint control, launch the ``joint_control.launch.py`` file from the ``ros2_control_explorer`` package:
 
 .. code-block:: console
 
@@ -54,7 +51,7 @@ or an Xbox One controller :
 Cartesian control
 -----------------
 
-To launch the simulation in Gazebo with cartesian control, launch the ``cartesian_control.launch.py`` file from the ``ros2_control_explorer`` package.
+To launch the simulation in Gazebo with cartesian control, launch the ``cartesian_control.launch.py`` file from the ``ros2_control_explorer`` package:
 
 .. code-block:: console
 
@@ -147,19 +144,25 @@ or 3D mouse.
 Use the real Explorer
 ================================
 
+.. _first-use-robot:
+
 First use of your Explorer
 ------------------------------
 
-If you are using your Explorer for the first time, go change the ``vesc_joints_can_ids`` parameter with the VESC can ids of your robot. This parameter is in the config file ``explorer_vesc_hw.yaml`` of the ``ros2_control_explorer`` package.
+If this is the first time you are using your Explorer, update the vesc_joints_can_ids parameter with the VESC CAN IDs of your robot. (To find the VESC ID of your robot, see :ref:`vesc-ID`). This parameter is located in the ``explorer_vesc_hw.yaml`` configuration file of the ``ros2_control_explorer`` package.
+
+Additionally, use the VESC Tool to initialize the 0 position of each actuator on the robot (see: :ref:`pos-0`). The robot's position 0 should look like this:
+
+.. image:: Images/Explorer_pos0.png
 
 Joint control
 -------------
 
-Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host run :.
+Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host, run :
 
 .. code-block:: console
 
-    ./setcan0_500k_host.sh
+    sudo ./setcan0_500k_host.sh
 
 This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.
 
@@ -186,11 +189,16 @@ or an Xbox One controller :
 Cartesian control
 -----------------
 
+.. attention::
+
+    MEnsure that you have properly initialized the 0 position of your robot before proceeding. If not, refer back to the section :ref:`first-use-robot`
+
+
 Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host run :
 
 .. code-block:: console
 
-    ./setcan0_500k_host.sh
+    sudo ./setcan0_500k_host.sh
 
 
 This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.
@@ -201,6 +209,8 @@ In the container, launch the ``explorer_cartesian.launch.py`` file from the ``ro
 
     ros2 launch ros2_control_explorer explorer_cartesian.launch.py use_bridge:=true
 
+.. caution::
+    Ensure that the robot's physical position matches the one displayed in RViz before making any movements. If they do not align, reinitialize the 0 position of your robot :ref:`first-use-robot`
 
 .. tip:: 
 

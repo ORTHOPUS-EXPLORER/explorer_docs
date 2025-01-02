@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Actuator &mdash; Explorer 1.0 documentation</title>
+  <title>VESC tool &mdash; Explorer 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Explorer" href="Explorer.html" />
-    <link rel="prev" title="VESC tool" href="VESC_tool.html" /> 
+    <link rel="next" title="Actuator" href="Actuator.html" />
+    <link rel="prev" title="Software" href="../Software.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -64,17 +64,17 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Software.html">Software</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="VESC_tool.html">VESC tool</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="VESC_tool.html#start-vesc-tool">Start VESC tool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VESC_tool.html#connect-using-usb">Connect using USB</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VESC_tool.html#connect-using-can">Connect using CAN</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VESC_tool.html#visualize">Visualize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="VESC_tool.html#change-the-position-0-of-an-actuator">Change the position 0 of an actuator</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">VESC tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-vesc-tool">Start VESC tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-using-usb">Connect using USB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-using-can">Connect using CAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-the-can-id">Change the CAN ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-the-position-0-of-an-actuator">Change the position 0 of an actuator</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Actuator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-an-actuator-with-vesc">Use an actuator with VESC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Actuator.html">Actuator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Actuator.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Actuator.html#use-an-actuator-with-vesc">Use an actuator with VESC</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Explorer.html">Explorer</a><ul>
@@ -130,9 +130,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../Software.html">Software</a></li>
-      <li class="breadcrumb-item active">Actuator</li>
+      <li class="breadcrumb-item active">VESC tool</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/Software/Actuator.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/Software/VESC_tool.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -140,38 +140,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="actuator">
-<h1>Actuator<a class="headerlink" href="#actuator" title="Link to this heading"></a></h1>
-<section id="simulation-using-gazebo-fortress">
-<h2>Simulation using Gazebo Fortress<a class="headerlink" href="#simulation-using-gazebo-fortress" title="Link to this heading"></a></h2>
-<p>To launch the simulation in Gazebo, launch the <code class="docutils literal notranslate"><span class="pre">simu_actuator.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_actuator</span></code> package.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_actuator simu_actuator.launch.py</span>
+  <section id="vesc-tool">
+<h1>VESC tool<a class="headerlink" href="#vesc-tool" title="Link to this heading"></a></h1>
+<section id="start-vesc-tool">
+<h2>Start VESC tool<a class="headerlink" href="#start-vesc-tool" title="Link to this heading"></a></h2>
+<p>Open a terminal in the VESC directory and start a Docker container using the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./docker-run-vesc.sh</span>
 </pre></div>
 </div>
-<p>This script launches RViz, Gazebo, the robot controller, and all necessary files to send commands to the controller.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching the simulation</p>
+<p>Inside the container, run the VESC tool:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./run_vesc_tool.sh</span>
+</pre></div>
 </div>
-<p>To control the actuator, you can use the <code class="docutils literal notranslate"><span class="pre">RB</span></code> and <code class="docutils literal notranslate"><span class="pre">LB</span></code> triggers of an xbox one controller.</p>
+<img alt="../_images/vesc_tool_start.png" src="../_images/vesc_tool_start.png" />
+<p>Click on <code class="docutils literal notranslate"><span class="pre">OK</span></code> to begin using the VESC tool.</p>
 </section>
-<section id="use-an-actuator-with-vesc">
-<h2>Use an actuator with VESC<a class="headerlink" href="#use-an-actuator-with-vesc" title="Link to this heading"></a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./setcan0_500k_host.sh</span>
+<section id="connect-using-usb">
+<h2>Connect using USB<a class="headerlink" href="#connect-using-usb" title="Link to this heading"></a></h2>
+<p>To connect to a VESC using USB, start by connecting the VESC borad to your computer using a USB cable. In VESC tool, go to <code class="docutils literal notranslate"><span class="pre">Connection</span></code>, then under <code class="docutils literal notranslate"><span class="pre">(USB-)Serial</span></code>, click on the connected plug icon.</p>
+<img alt="../_images/VESC_USB.png" src="../_images/VESC_USB.png" />
+<p>If the connection is successful, the following message will appear in the bottom-right corner:</p>
+<img alt="../_images/USB_connect.png" src="../_images/USB_connect.png" />
+</section>
+<section id="connect-using-can">
+<h2>Connect using CAN<a class="headerlink" href="#connect-using-can" title="Link to this heading"></a></h2>
+<p>To connect to a VESC using CAN, start by connecting the VESC board to your computer using a USB cable.</p>
+<p>Open a terminal in your VESC directory and run the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo ./setcan0_500k_host.sh</span>
 </pre></div>
 </div>
-<p>This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.</p>
-<p>Before lauching anything, go change the <code class="docutils literal notranslate"><span class="pre">vesc_joints_can_ids</span></code> parameter with the VESC can ids of your actuator. This parameter is in the config file <code class="docutils literal notranslate"><span class="pre">actuator_vesc_hw.yaml</span></code> of the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package.</p>
-<p>In the container, launch the <code class="docutils literal notranslate"><span class="pre">real_actuator.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_actuator</span></code> package to start the robot controller and RVIZ.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_actuator real_actuator.launch.py use_bridge:=true</span>
+<p>In VESC Tool, go to <code class="docutils literal notranslate"><span class="pre">Connection</span></code> and under <code class="docutils literal notranslate"><span class="pre">CAN</span> <span class="pre">bus</span></code>, click on the <code class="docutils literal notranslate"><span class="pre">Scan</span></code> button.
+After the scan completes, select the VESC ID of the VESC you want to connect to and click the connected plug button.</p>
+<img alt="../_images/VESC_CAN.png" src="../_images/VESC_CAN.png" />
+<p>If the connection is successful, the following message will appear in the bottom-right corner:</p>
+<img alt="../_images/CAN_connect.png" src="../_images/CAN_connect.png" />
+</section>
+<section id="change-the-can-id">
+<span id="vesc-id"></span><h2>Change the CAN ID<a class="headerlink" href="#change-the-can-id" title="Link to this heading"></a></h2>
+<p>To change the CAN ID of a connected VESC, in VESC Tool, go to <code class="docutils literal notranslate"><span class="pre">App</span> <span class="pre">Settings</span></code> and <code class="docutils literal notranslate"><span class="pre">General</span></code>, you can now change the <code class="docutils literal notranslate"><span class="pre">VESC</span> <span class="pre">ID</span></code>.
+Save the changes by clicking the A icon with a downward arrow on the right.</p>
+<p>You can view the CAN IDs of all VESCs on the CAN bus at the bottom-left corner of the tool.</p>
+<img alt="../_images/VESC_ID.png" src="../_images/VESC_ID.png" />
+</section>
+<section id="change-the-position-0-of-an-actuator">
+<span id="pos-0"></span><h2>Change the position 0 of an actuator<a class="headerlink" href="#change-the-position-0-of-an-actuator" title="Link to this heading"></a></h2>
+<p>To change the position 0 of an actuator, once connected, go to <code class="docutils literal notranslate"><span class="pre">VESC</span> <span class="pre">Dev</span> <span class="pre">Tools</span></code>.</p>
+<img alt="../_images/VESC_terminal.png" src="../_images/VESC_terminal.png" />
+<p>In <code class="docutils literal notranslate"><span class="pre">VESC</span> <span class="pre">terminal</span></code>:</p>
+<ul class="simple">
+<li><p>To save the current position as the position 0, use the following command :</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">o_offset encoder</span>
 </pre></div>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching the simulation</p>
+<ul class="simple">
+<li><p>To save the current position as a specific position relative to 0 (in degrees), use the following command:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">o_offset joint (position in degrees)</span>
+</pre></div>
 </div>
-<img alt="../_images/actuator_gazebo.png" src="../_images/actuator_gazebo.png" />
-<p>To control the actuator, you can use the <code class="docutils literal notranslate"><span class="pre">RB</span></code> and <code class="docutils literal notranslate"><span class="pre">LB</span></code> triggers of an xbox one controller.</p>
+<p>Save the configuration using this command :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">o_config save</span>
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -179,8 +210,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="VESC_tool.html" class="btn btn-neutral float-left" title="VESC tool" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Explorer.html" class="btn btn-neutral float-right" title="Explorer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Software.html" class="btn btn-neutral float-left" title="Software" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Actuator.html" class="btn btn-neutral float-right" title="Actuator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
