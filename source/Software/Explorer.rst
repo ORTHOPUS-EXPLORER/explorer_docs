@@ -82,6 +82,10 @@ Simulation using VESC simulation
 Joint control
 -------------
 
+Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 155 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
+
+
+
 To launch the VESC simulator, run the ``app_sim`` file from the ``pyvesc_explorer`` package:
 
 .. code-block:: console
@@ -111,6 +115,8 @@ or an Xbox One controller :
 Cartesian control
 -----------------
 
+Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 211 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
+
 To launch the VESC simulator, run the ``app_sim`` file from the ``pyvesc_explorer`` package:
 
 .. code-block:: console
@@ -139,7 +145,6 @@ To control the robot, you can use the GUI :
 
 or 3D mouse.
 
-
 ================================
 Use the real Explorer
 ================================
@@ -157,6 +162,8 @@ Additionally, use the VESC Tool to initialize the 0 position of each actuator on
 
 Joint control
 -------------
+
+Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 155 and replace the existing text with ``explorer_vesc_hw.yaml``. After making this change, rebuild the package using colcon build.
 
 Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host, run :
 
@@ -189,9 +196,11 @@ or an Xbox One controller :
 Cartesian control
 -----------------
 
+Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 211 and replace the existing text with ``explorer_vesc_hw.yaml``. After making this change, rebuild the package using colcon build.
+
 .. attention::
 
-    MEnsure that you have properly initialized the 0 position of your robot before proceeding. If not, refer back to the section :ref:`first-use-robot`
+    Ensure that you have properly initialized the 0 position of your robot before proceeding. If not, refer back to the section :ref:`first-use-robot`
 
 
 Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host run :

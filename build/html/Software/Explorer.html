@@ -58,9 +58,9 @@
 <li class="toctree-l4"><a class="reference internal" href="../Getting_Started.html#id2">Use an already existing Docker image</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#use-tmux">Use Tmux</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../Getting_Started.html#use-tmux">Use Tmux</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../Software.html">Software</a><ul class="current">
@@ -193,6 +193,7 @@
 <h2>Simulation using VESC simulation<a class="headerlink" href="#simulation-using-vesc-simulation" title="Link to this heading"></a></h2>
 <section id="id2">
 <h3>Joint control<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>Before launching anything, open the <code class="docutils literal notranslate"><span class="pre">explorer_joint.launch.py</span></code> file in the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package. Navigate to line 155 and replace the existing text with <code class="docutils literal notranslate"><span class="pre">explorer_vesc.yaml</span></code>. After making this change, rebuild the package using colcon build.</p>
 <p>To launch the VESC simulator, run the <code class="docutils literal notranslate"><span class="pre">app_sim</span></code> file from the <code class="docutils literal notranslate"><span class="pre">pyvesc_explorer</span></code> package:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 run pyvesc_explorer app_sim</span>
 </pre></div>
@@ -212,6 +213,7 @@
 </section>
 <section id="id3">
 <h3>Cartesian control<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Before launching anything, open the <code class="docutils literal notranslate"><span class="pre">explorer_cartesian.launch.py</span></code> file in the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package. Navigate to line 211 and replace the existing text with <code class="docutils literal notranslate"><span class="pre">explorer_vesc.yaml</span></code>. After making this change, rebuild the package using colcon build.</p>
 <p>To launch the VESC simulator, run the <code class="docutils literal notranslate"><span class="pre">app_sim</span></code> file from the <code class="docutils literal notranslate"><span class="pre">pyvesc_explorer</span></code> package:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 run pyvesc_explorer app_sim</span>
 </pre></div>
@@ -243,6 +245,7 @@
 </section>
 <section id="id4">
 <h3>Joint control<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Before launching anything, open the <code class="docutils literal notranslate"><span class="pre">explorer_joint.launch.py</span></code> file in the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package. Navigate to line 155 and replace the existing text with <code class="docutils literal notranslate"><span class="pre">explorer_vesc_hw.yaml</span></code>. After making this change, rebuild the package using colcon build.</p>
 <p>Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host, run :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo ./setcan0_500k_host.sh</span>
 </pre></div>
@@ -263,9 +266,10 @@
 </section>
 <section id="id5">
 <h3>Cartesian control<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Before launching anything, open the <code class="docutils literal notranslate"><span class="pre">explorer_cartesian.launch.py</span></code> file in the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package. Navigate to line 211 and replace the existing text with <code class="docutils literal notranslate"><span class="pre">explorer_vesc_hw.yaml</span></code>. After making this change, rebuild the package using colcon build.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>MEnsure that you have properly initialized the 0 position of your robot before proceeding. If not, refer back to the section <a class="reference internal" href="#first-use-robot"><span class="std std-ref">First use of your Explorer</span></a></p>
+<p>Ensure that you have properly initialized the 0 position of your robot before proceeding. If not, refer back to the section <a class="reference internal" href="#first-use-robot"><span class="std std-ref">First use of your Explorer</span></a></p>
 </div>
 <p>Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host run :</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo ./setcan0_500k_host.sh</span>
