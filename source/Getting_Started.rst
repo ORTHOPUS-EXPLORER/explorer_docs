@@ -6,120 +6,174 @@ Getting Started
    :titlesonly:
    :hidden:
 
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 ============
+Requirements
+============
+
+Local
+------
+
+The Explorer project uses ROS 2 Iron. To use this project locally, you need to have this version of ROS 2 installed.
+
+You can find more information about this ROS 2 distribution and installation instructions at the following link: `ROS 2 Iron Documentation`_.
+
+.. _ROS 2 Iron Documentation: https://docs.ros.org/en/iron/index.html
+
 Using Docker
+-------------
+
+If you prefer not to install ROS 2 Iron locally or want to avoid conflicts with other projects, you can use Docker to run this project inside a container.
+
+For more information and installation instructions for Docker, visit this link: `Docker Documentation`_.
+
+.. _Docker Documentation: https://docs.docker.com/
+
+============
+Installation
 ============
 
 Explorer's project
 -------------------
 
-Use Docker for the first time
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Local
+^^^^^
 
-Create a folder and pull 
+To install the Explorer project, visit this link: `Explorer's Git`_, and clone the Git repository.
 
-à inserer lien bitbucket
+.. code-block:: console
 
-In the folder, run ``setup_devenv.sh``, this script create a ``src`` folder and pull the explorer git.
+    git clone git@bitbucket.org:orthopusactuators/explorer_ws.git
+
+.. _Explorer's Git: https://bitbucket.org/orthopusactuators/explorer_ws/src/a96410f3c2af7f8633b02934431493ad2ff8e014/?at=dev%2Fts%2Fdev
+
+To install all the libraries required to run the project, execute the following commands inside the cloned Git repository:
+
+.. code-block:: console
+    apt update
+    rosdep install -i -y --from-paths .
+
+Then, build and source the project with these commands:
+
+.. code-block:: console
+    colcon build
+    source install/setup.bash
+
+You can now go to the :ref:`software` chapter and try running the different commands from :ref:`actuator`, :ref:`explorer` or :ref:`explorer-on-wheelchair` .
+
+Using Docker
+^^^^^^^^^^^^
+
+To use docker, visit this link : `Explorer's Docker Git`_, and clone the Git repository.
+
+.. code-block:: console
+
+    git clone git@bitbucket.org:orthopusactuators/explorer_devenv.git
+
+.. _Explorer's Docker Git: https://bitbucket.org/orthopusactuators/explorer_devenv/src/master/
+
+Once you've cloned the repository, navigate to the directory and run the ``setup_devenv.sh`` script. This script will create a ``src`` folder and pull the Explorer's Git.
 
 .. code-block:: console
 
     ./setup_devenv.sh
 
+In the ``explorer_ws`` repository, ensure you select the correct Git branch. Then, repeat the same operation for each submodule.
 
-Then, run ``docker-build-iron.sh`` to build the docker.
+Next, build the Docker image by running the ``docker-build-iron.sh`` script.
 
 .. code-block:: console
 
     ./docker-build-iron.sh
 
-You can now run the container.
+You can now run the container using the following command:
 
 .. code-block:: console
 
     ./docker-run-explorer-iron.sh
 
-In the container, run ``build.sh`` to run rosdep install and colcon build.
+Inside the container, run the ``build.sh`` script to install dependencies with ``rosdep`` and build the project using ``colcon``.
 
 .. code-block:: console
     
     ./build.sh
 
-You can, now, run any commands from the explorer project.
 
-To save the docker image for later, in the host, open a new terminal and run ``docker commit ros-iron-explorer ros-iron-explorer:prebuilt``.
+
+You can now execute any commands from the Explorer project.
+
+To save the Docker image for later use, open a new terminal on the host machine and run the following command:
 
 .. code-block:: console
 
     docker commit ros-iron-explorer ros-iron-explorer:prebuilt
 
-Use an already existing Docker image
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you saved the docker image, you can use the command ``./docker-run-explorer-iron-prebuilt.sh`` to run a prebuilt container.
+If you want to use your saved Docker image later, run the prebuilt Docker container using:
 
 .. code-block:: console
 
     ./docker-run-explorer-iron-prebuilt.sh
 
 
-In the container you need to colcon build and source the setup file and project file.
+Inside the container, you will need to build the project again with colcon and source the setup file and project file:
 
 .. code-block:: console
     
     colcon build
     . source.sh
 
-You can, now, run any commands from the explorer project.
+You can now execute any commands from the Explorer project.
 
 
 VESC tool's  project
 --------------------
 
-Use Docker for the first time
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To use Docker, visit this link : `VESC Docker Git`_, and clone the Git repository.
 
-Create a folder and pull 
+.. code-block:: console
 
-à inserer lien bitbucket
+    git clone git@bitbucket.org:orthopusactuators/vesc_devenv.git
 
-In the folder, run ``setup_devenv.sh``, this script create a ``src`` folder and pull the explorer git.
+.. _VESC Docker Git: https://bitbucket.org/orthopusactuators/vesc_devenv/src/master/
+
+In the cloned repository, run the ``setup_devenv.sh`` script. This script creates a ``src`` folder and pulls the Explorer Git repository.
 
 .. code-block:: console
 
     ./setup_devenv.sh
 
 
-Then, run ``docker-build-vesc.sh`` to build the docker.
+Next, build the Docker image by running the ``docker-build-vesc.sh`` script.
 
 .. code-block:: console
 
     ./docker-build-vesc.sh
 
 
-You can now run the container.
+You can now start the container using the following command:
 
 .. code-block:: console
 
     ./docker-run-vesc.sh
 
-In the container, in the ``vesc_tool`` folder, and run ``build_lin_original_only``
+Inside the container, navigate to the ``vesc_tool`` folder and run the ``build_lin_original_only`` script:
 
 .. code-block:: console
 
     ./build_lin_original_only
 
-Come back in the ``src`` folder and run ``make_fw.sh``
+
+Return to the ``src`` folder and execute the ``make_fw.sh`` script:
 
 .. code-block:: console
 
     ./make_fw.sh
 
-Use an already existing Docker image
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the VESC folder, you can now run the container.
+Finally, in the VESC folder, you can run the container again if needed:
 
 .. code-block:: console
 

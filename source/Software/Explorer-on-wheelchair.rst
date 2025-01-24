@@ -1,3 +1,5 @@
+.. _explorer-on-wheelchair:
+
 ######################
 Explorer on wheelchair
 ######################
@@ -21,7 +23,6 @@ With the ``joint_state_publisher_gui`` you can now change the position of every 
 ================================
 Simulation using Gazebo Fortress
 ================================
-
 
 Cartesian control
 -----------------
