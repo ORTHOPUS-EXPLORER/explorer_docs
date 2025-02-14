@@ -53,12 +53,14 @@ To install the Explorer project, visit this link: `Explorer's Git`_, and clone t
 To install all the libraries required to run the project, execute the following commands inside the cloned Git repository:
 
 .. code-block:: console
+    
     apt update
     rosdep install -i -y --from-paths .
 
 Then, build and source the project with these commands:
 
 .. code-block:: console
+
     colcon build
     source install/setup.bash
 

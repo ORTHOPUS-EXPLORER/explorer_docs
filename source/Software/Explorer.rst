@@ -16,6 +16,9 @@ To view the robot, open a terminal and launch the ``view_explorer.launch.py`` fi
 
 With the ``joint_state_publisher_gui`` you can now change the position of each joint.
 
+.. tip:: 
+
+    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching the simulation
 
 .. image:: Images/view_explorer.png
 
@@ -38,6 +41,11 @@ This script launches RViz, Gazebo, the robot controller, and all necessary files
 .. tip:: 
 
     If you don't want to launch RVIZ, add ``gui:=false`` when launching the simulation
+
+.. tip:: 
+
+    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching the simulation
+
 
 To control the robot, you can use the GUI : 
 
@@ -68,6 +76,11 @@ This script launches RViz, Gazebo, the robot controller, and all necessary files
 
     If you don't a 3D mouse, add ``spacenav:=false`` when launching the simulation
 
+.. tip:: 
+
+    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching the simulation
+
+
 To control the robot, you can use the GUI : 
 
 .. image:: Images/GUI_cartesian.png
@@ -82,7 +95,7 @@ Simulation using VESC simulation
 Joint control
 -------------
 
-Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 155 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
+Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 166 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
 
 
 
@@ -103,6 +116,10 @@ In another terminal, launch the ``explorer_joint.launch.py`` file from the ``ros
 
     If you don't want to launch RVIZ, add ``gui:=false`` when launching ``explorer_joint``
 
+.. tip:: 
+
+    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_joint``
+
 
 To control the robot, you can use the GUI : 
 
@@ -115,7 +132,7 @@ or an Xbox One controller :
 Cartesian control
 -----------------
 
-Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 211 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
+Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 221 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
 
 To launch the VESC simulator, run the ``app_sim`` file from the ``pyvesc_explorer`` package:
 
@@ -137,6 +154,10 @@ In another terminal, launch the ``explorer_cartesian.launch.py`` file from the `
 .. tip:: 
 
     If you don't have a 3D mouse, add ``spacenav:=false`` when launching ``explorer_cartesian``
+
+.. tip:: 
+
+    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_cartesian``
 
 
 To control the robot, you can use the GUI : 
@@ -163,7 +184,7 @@ Additionally, use the VESC Tool to initialize the 0 position of each actuator on
 Joint control
 -------------
 
-Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 155 and replace the existing text with ``explorer_vesc_hw.yaml``. After making this change, rebuild the package using colcon build.
+Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 166 and replace the existing text with ``explorer_vesc_hw.yaml``. After making this change, rebuild the package using colcon build.
 
 Connect the Explorer power supply and link it to a computer using a USB cable. In the explorer directory in the host, run :
 
@@ -183,6 +204,10 @@ In the container, launch the ``explorer_joint.launch.py`` file from the ``ros2_c
 
     If you don't want to launch RVIZ, add ``gui:=false`` when launching ``explorer_joint``
 
+.. tip:: 
+
+    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_joint``
+
 
 To control the robot, you can use the GUI : 
 
@@ -196,7 +221,7 @@ or an Xbox One controller :
 Cartesian control
 -----------------
 
-Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 211 and replace the existing text with ``explorer_vesc_hw.yaml``. After making this change, rebuild the package using colcon build.
+Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 221 and replace the existing text with ``explorer_vesc_hw.yaml``. After making this change, rebuild the package using colcon build.
 
 .. attention::
 
@@ -228,6 +253,10 @@ In the container, launch the ``explorer_cartesian.launch.py`` file from the ``ro
 .. tip:: 
 
     If you don't have a 3D mouse, add ``spacenav:=false`` when launching ``explorer_cartesian``
+
+.. tip:: 
+
+    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_cartesian``
 
 
 To control the robot, you can use the GUI : 

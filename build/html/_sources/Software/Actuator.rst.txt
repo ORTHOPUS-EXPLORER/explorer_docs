@@ -20,7 +20,11 @@ This script launches RViz, Gazebo, the robot controller, and all necessary files
 
     If you don't want to launch RVIZ, add ``gui:=false`` when launching the simulation
 
-To control the actuator, you can use the ``RB`` and ``LB`` triggers of an xbox one controller.
+To control the actuator, you can use the GUI 
+
+.. image:: Images/GUI_actuator.png
+
+, or the ``RB`` and ``LB`` triggers of an xbox one controller.
 
 =========================
 Use an actuator with VESC
@@ -48,4 +52,8 @@ In the container, launch the ``real_actuator.launch.py`` file from the ``ros2_co
 
 .. image:: Images/actuator_gazebo.png
 
-To control the actuator, you can use the ``RB`` and ``LB`` triggers of an xbox one controller.
+To control the actuator, you can use the GUI 
+
+.. image:: Images/GUI_actuator.png
+
+, or the ``RB`` and ``LB`` triggers of an xbox one controller.

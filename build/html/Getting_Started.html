@@ -186,7 +186,15 @@
 </pre></div>
 </div>
 <p>To install all the libraries required to run the project, execute the following commands inside the cloned Git repository:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apt update</span>
+<span class="go">rosdep install -i -y --from-paths .</span>
+</pre></div>
+</div>
 <p>Then, build and source the project with these commands:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">colcon build</span>
+<span class="go">source install/setup.bash</span>
+</pre></div>
+</div>
 <p>You can now go to the <a class="reference internal" href="Software.html#software"><span class="std std-ref">Software</span></a> chapter and try running the different commands from <a class="reference internal" href="Software/Actuator.html#actuator"><span class="std std-ref">Actuator</span></a>, <a class="reference internal" href="Software/Explorer.html#explorer"><span class="std std-ref">Explorer</span></a> or <a class="reference internal" href="Software/Explorer-on-wheelchair.html#explorer-on-wheelchair"><span class="std std-ref">Explorer on wheelchair</span></a> .</p>
 </section>
 <section id="id2">
