@@ -22,11 +22,15 @@ Inside the container, run the VESC tool:
 
 Click on ``OK`` to begin using the VESC tool.
 
+.. _usb-connect:
+
 =================
 Connect using USB
 =================
 
-To connect to a VESC using USB, start by connecting the VESC borad to your computer using a USB cable. In VESC tool, go to ``Connection``, then under ``(USB-)Serial``, click on the connected plug icon.
+.. |ico1| image:: Images/connection_icon.png
+
+To connect to a VESC using USB, start by connecting the VESC borad to your computer using a USB cable. In VESC tool, go to ``Connection``, then under ``(USB-)Serial``, click on the connected plug icon |ico1|.
 
 .. image:: Images/VESC_USB.png
 
@@ -48,7 +52,7 @@ Open a terminal in your VESC directory and run the following command:
 
 
 In VESC Tool, go to ``Connection`` and under ``CAN bus``, click on the ``Scan`` button.
-After the scan completes, select the VESC ID of the VESC you want to connect to and click the connected plug button.
+After the scan completes, select the VESC ID of the VESC you want to connect to and click the connected plug button |ico1|.
 
 .. image:: Images/VESC_CAN.png 
 

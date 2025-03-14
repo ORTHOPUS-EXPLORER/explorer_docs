@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gauge conditioner &mdash; Explorer 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flash the VESC" href="Flash-VESC.html" />
+    <link rel="prev" title="Firmware" href="../Firmware.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Explorer
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Getting_Started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Getting_Started.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#local">Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#using-docker">Using Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Getting_Started.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#explorer-s-project">Explorer’s project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Getting_Started.html#id1">Local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Getting_Started.html#id2">Using Docker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Getting_Started.html#vesc-tool-s-project">VESC tool’s  project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Getting_Started.html#use-tmux">Use Tmux</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Hardware.html">Hardware</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../Firmware.html">Firmware</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Gauge conditioner</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-the-gauge-conditioner">Configure the Gauge conditioner</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Flash-VESC.html">Flash the VESC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Flash-VESC.html#getting-started">Getting Started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Flash-VESC.html#plug-the-vesc-board">Plug the VESC board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Flash-VESC.html#unplug-the-vesc-board">Unplug the VESC board</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Flash-VESC.html#upload-firmware">Upload Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Flash-VESC.html#load-a-base-motor-configuration">Load a base motor configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Flash-VESC.html#sin-cos-calibration">Sin Cos calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Flash-VESC.html#encoder-detection">Encoder detection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Software.html">Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Software/VESC_tool.html">VESC tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/VESC_tool.html#start-vesc-tool">Start VESC tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/VESC_tool.html#connect-using-usb">Connect using USB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/VESC_tool.html#connect-using-can">Connect using CAN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/VESC_tool.html#change-the-can-id">Change the CAN ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/VESC_tool.html#change-the-position-0-of-an-actuator">Change the position 0 of an actuator</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/Actuator.html">Actuator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Actuator.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Actuator.html#use-an-actuator-with-vesc">Use an actuator with VESC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/Explorer.html">Explorer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Explorer.html#view-robot">View robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Explorer.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer.html#joint-control">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer.html#cartesian-control">Cartesian control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Explorer.html#simulation-using-vesc-simulation">Simulation using VESC simulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer.html#id2">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer.html#id3">Cartesian control</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Explorer.html#use-the-real-explorer">Use the real Explorer</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer.html#first-use-of-your-explorer">First use of your Explorer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer.html#id4">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer.html#id5">Cartesian control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Software/Explorer-on-wheelchair.html">Explorer on wheelchair</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Explorer-on-wheelchair.html#view-robot">View robot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Software/Explorer-on-wheelchair.html#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Software/Explorer-on-wheelchair.html#cartesian-control">Cartesian control</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Explorer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../Firmware.html">Firmware</a></li>
+      <li class="breadcrumb-item active">Gauge conditioner</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Firmware/Gauge-conditioner.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gauge-conditioner">
+<span id="conditioner-gauges"></span><h1>Gauge conditioner<a class="headerlink" href="#gauge-conditioner" title="Link to this heading"></a></h1>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>Download the software</p>
+</section>
+<section id="configure-the-gauge-conditioner">
+<h2>Configure the Gauge conditioner<a class="headerlink" href="#configure-the-gauge-conditioner" title="Link to this heading"></a></h2>
+<p>Take an actuator with a carrier board.</p>
+<a class="reference internal image-reference" href="../_images/Carrier_board.png"><img alt="../_images/Carrier_board.png" class="align-center" src="../_images/Carrier_board.png" style="width: 295.08px; height: 311.76px;" />
+</a>
+<p>Start the PGA308EVM Software</p>
+<p>Go to <code class="docutils literal notranslate"><span class="pre">PGA308</span> <span class="pre">Controls</span></code> and <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">RAM</span> <span class="pre">with</span> <span class="pre">cotents</span> <span class="pre">of</span> <span class="pre">file</span></code>, choose the file …</p>
+<p>Tick the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">RAM</span></code> and then <code class="docutils literal notranslate"><span class="pre">Write</span> <span class="pre">to</span> <span class="pre">RAM</span></code></p>
+<p>Click now on <code class="docutils literal notranslate"><span class="pre">Read</span></code>, Look at the value above the button, and it should be around 1.65V, to correct it, change the <code class="docutils literal notranslate"><span class="pre">Coarse</span> <span class="pre">offset</span></code> first and then the <code class="docutils literal notranslate"><span class="pre">Fine</span> <span class="pre">Offset</span></code>. After every change, write and read the configuration again.</p>
+<p>Once it is done, go to the <code class="docutils literal notranslate"><span class="pre">Graph</span></code> tab and click on <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">Graph</span></code> and apply a torsin on the motor clutch, you should see the value on the graph evolve, now click on <code class="docutils literal notranslate"><span class="pre">Stop</span> <span class="pre">Graph</span></code>.</p>
+<p>Go to the <code class="docutils literal notranslate"><span class="pre">Registers</span> <span class="pre">in</span> <span class="pre">OTP</span></code> tab, click on <code class="docutils literal notranslate"><span class="pre">Program</span> <span class="pre">OTP</span> <span class="pre">and</span> <span class="pre">POR</span> <span class="pre">in</span> <span class="pre">One</span> <span class="pre">Step</span></code> then click on <code class="docutils literal notranslate"><span class="pre">OK</span></code>.</p>
+<p>To check if everything works fine, unplug and plug back the JST connector on the actuator. <code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">the</span> <span class="pre">RAM</span></code>, go to <code class="docutils literal notranslate"><span class="pre">Graph</span></code> again and see if the value change like before.</p>
+<p>The gauges conditioner is now configured.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Firmware.html" class="btn btn-neutral float-left" title="Firmware" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Flash-VESC.html" class="btn btn-neutral float-right" title="Flash the VESC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Isea JEAN.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVD5Z6G6NH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EVD5Z6G6NH', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

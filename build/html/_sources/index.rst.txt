@@ -12,8 +12,8 @@ Welcome to Explorer's documentation!
    
 
    Getting_Started.rst
-   Software.rst
    Hardware.rst
    Firmware.rst
+   Software.rst
    
 
