@@ -92,12 +92,24 @@ or 3D mouse.
 Simulation using VESC simulation
 ================================
 
+
+
 Joint control
 -------------
 
+To use the VESC simulation, Run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
+
+.. code-block:: console
+
+    ./setvcan_host.sh
+
+Then, run the following command inside the Docker container:
+
+.. code-block:: console
+
+    ./setvcan_cont.sh
+
 Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 166 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
-
-
 
 To launch the VESC simulator, run the ``app_sim`` file from the ``pyvesc_explorer`` package:
 
@@ -131,6 +143,18 @@ or an Xbox One controller :
 
 Cartesian control
 -----------------
+
+To use the VESC simulation, Run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
+
+.. code-block:: console
+
+    ./setvcan_host.sh
+
+Then, run the following command inside the Docker container:
+
+.. code-block:: console
+
+    ./setvcan_cont.sh
 
 Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 221 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
 
