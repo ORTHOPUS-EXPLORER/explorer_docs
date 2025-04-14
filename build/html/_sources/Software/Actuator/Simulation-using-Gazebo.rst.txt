@@ -1,4 +1,0 @@
-.. _Sim-Gazebo-Actuator:
-
-Simulation using Gazebo Fortress
-================================

@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Explorer'
-copyright = '2024, Isea JEAN'
-author = 'Isea JEAN'
+copyright = '2024, ORTHOPUS'
+author = 'ORTHOPUS'
 
 # The full version, including alpha/beta/rc tags
 release = '1.0'

@@ -1,7 +1,0 @@
-View Actuator
-=============
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-   :hidden:

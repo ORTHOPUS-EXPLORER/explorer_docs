@@ -97,7 +97,7 @@ Simulation using VESC simulation
 Joint control
 -------------
 
-To use the VESC simulation, Run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
+To use the VESC simulation, run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
 
 .. code-block:: console
 
@@ -144,7 +144,7 @@ or an Xbox One controller :
 Cartesian control
 -----------------
 
-To use the VESC simulation, Run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
+To use the VESC simulation, run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
 
 .. code-block:: console
 

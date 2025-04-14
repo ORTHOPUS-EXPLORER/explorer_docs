@@ -1,4 +1,0 @@
-.. _Sim-Gazebo-Explorer-on-wheelchair:
-
-Simulation using Gazebo Fortress
-================================
