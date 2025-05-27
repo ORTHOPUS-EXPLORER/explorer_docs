@@ -16,7 +16,7 @@ jobs:
       - name: Upload to FTP
         uses: dennisameling/ftp-upload-action@v1
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local_dir: ./build/html/
