@@ -16,10 +16,6 @@ To view the robot, open a terminal and launch the ``view_explorer.launch.py`` fi
 
 With the ``joint_state_publisher_gui`` you can now change the position of each joint.
 
-.. tip:: 
-
-    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching the simulation
-
 .. image:: Images/view_explorer.png
 
 ================================
@@ -41,10 +37,6 @@ This script launches RViz, Gazebo, the robot controller, and all necessary files
 .. tip:: 
 
     If you don't want to launch RVIZ, add ``gui:=false`` when launching the simulation
-
-.. tip:: 
-
-    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching the simulation
 
 
 To control the robot, you can use the GUI : 
@@ -76,113 +68,6 @@ This script launches RViz, Gazebo, the robot controller, and all necessary files
 
     If you don't a 3D mouse, add ``spacenav:=false`` when launching the simulation
 
-.. tip:: 
-
-    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching the simulation
-
-
-To control the robot, you can use the GUI : 
-
-.. image:: Images/GUI_cartesian.png
-
-or 3D mouse. 
-
-
-================================
-Simulation using VESC simulation
-================================
-
-
-
-Joint control
--------------
-
-To use the VESC simulation, run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
-
-.. code-block:: console
-
-    ./setvcan_host.sh
-
-Then, run the following command inside the Docker container:
-
-.. code-block:: console
-
-    ./setvcan_cont.sh
-
-Before launching anything, open the ``explorer_joint.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 166 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
-
-To launch the VESC simulator, run the ``app_sim`` file from the ``pyvesc_explorer`` package:
-
-.. code-block:: console
-
-    ros2 run pyvesc_explorer app_sim
-
-
-In another terminal, launch the ``explorer_joint.launch.py`` file from the ``ros2_control_explorer`` package to start the robot controller and RVIZ:
-
-.. code-block:: console
-
-    ros2 launch ros2_control_explorer explorer_joint.launch.py use_bridge:=true
-
-.. tip:: 
-
-    If you don't want to launch RVIZ, add ``gui:=false`` when launching ``explorer_joint``
-
-.. tip:: 
-
-    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_joint``
-
-
-To control the robot, you can use the GUI : 
-
-.. image:: Images/GUI_joint.png
-
-or an Xbox One controller : 
-
-.. image:: Images/xbox_controller.png
-
-Cartesian control
------------------
-
-To use the VESC simulation, run the following command outside the Docker container, in the ``explorer-devenv`` repository : 
-
-.. code-block:: console
-
-    ./setvcan_host.sh
-
-Then, run the following command inside the Docker container:
-
-.. code-block:: console
-
-    ./setvcan_cont.sh
-
-Before launching anything, open the ``explorer_cartesian.launch.py`` file in the ``ros2_control_explorer`` package. Navigate to line 221 and replace the existing text with ``explorer_vesc.yaml``. After making this change, rebuild the package using colcon build.
-
-To launch the VESC simulator, run the ``app_sim`` file from the ``pyvesc_explorer`` package:
-
-.. code-block:: console
-
-    ros2 run pyvesc_explorer app_sim
-
-
-In another terminal, launch the ``explorer_cartesian.launch.py`` file from the ``ros2_control_explorer`` package to start the robot controller and RVIZ:
-
-.. code-block:: console
-
-    ros2 launch ros2_control_explorer explorer_cartesian.launch.py use_bridge:=true
-
-.. tip:: 
-
-    If you don't want to launch RVIZ, add ``gui:=false`` when launching ``explorer_cartesian``
-
-.. tip:: 
-
-    If you don't have a 3D mouse, add ``spacenav:=false`` when launching ``explorer_cartesian``
-
-.. tip:: 
-
-    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_cartesian``
-
 
 To control the robot, you can use the GUI : 
 
@@ -203,7 +88,9 @@ If this is the first time you are using your Explorer, update the vesc_joints_ca
 
 Additionally, use the VESC Tool to initialize the 0 position of each actuator on the robot (see: :ref:`pos-0`). The robot's position 0 should look like this:
 
-.. image:: Images/Explorer_pos0.png
+.. image:: Images/Explorer_pos0_POC2.png
+
+On each joint, align the pin with the mark on the actuator.
 
 Joint control
 -------------
@@ -214,23 +101,19 @@ Connect the Explorer power supply and link it to a computer using a USB cable. I
 
 .. code-block:: console
 
-    sudo ./setcan0_500k_host.sh
+    sudo ./setcan0_1M.sh
 
-This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.
+This script configures the can0 interface with a bitrate of 1 Mbps and sets the queue length to 100 packets.
 
 In the container, launch the ``explorer_joint.launch.py`` file from the ``ros2_control_explorer`` package to start the robot controller and RVIZ.
 
 .. code-block:: console
 
-    ros2 launch ros2_control_explorer explorer_joint.launch.py use_bridge:=true
+    ros2 launch ros2_control_explorer explorer_joint.launch.py can_port:='can0'
 
 .. tip:: 
 
     If you don't want to launch RVIZ, add ``gui:=false`` when launching ``explorer_joint``
-
-.. tip:: 
-
-    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_joint``
 
 
 To control the robot, you can use the GUI : 
@@ -256,16 +139,16 @@ Connect the Explorer power supply and link it to a computer using a USB cable. I
 
 .. code-block:: console
 
-    sudo ./setcan0_500k_host.sh
+    sudo ./setcan0_1M.sh
 
 
-This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.
+This script configures the can0 interface with a bitrate of 1 Mbps and sets the queue length to 100 packets.
 
 In the container, launch the ``explorer_cartesian.launch.py`` file from the ``ros2_control_explorer`` package to start the robot controller and RVIZ.
 
 .. code-block:: console
 
-    ros2 launch ros2_control_explorer explorer_cartesian.launch.py use_bridge:=true
+    ros2 launch ros2_control_explorer explorer_cartesian.launch.py can_port:='can0'
 
 .. caution::
     Ensure that the robot's physical position matches the one displayed in RViz before making any movements. If they do not align, reinitialize the 0 position of your robot :ref:`first-use-robot`
@@ -277,10 +160,6 @@ In the container, launch the ``explorer_cartesian.launch.py`` file from the ``ro
 .. tip:: 
 
     If you don't have a 3D mouse, add ``spacenav:=false`` when launching ``explorer_cartesian``
-
-.. tip:: 
-
-    If you want to use POC2 URDF, add ``use_POC2:=true`` when launching ``explorer_cartesian``
 
 
 To control the robot, you can use the GUI : 

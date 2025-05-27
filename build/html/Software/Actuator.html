@@ -98,7 +98,12 @@
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Actuator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#simulation-using-gazebo-fortress">Simulation using Gazebo Fortress</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#use-an-actuator-with-vesc">Use an actuator with VESC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-an-actuator-with-vesc">Use an actuator with VESC</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#position-control">Position control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#velocity-control">Velocity control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#torque-control">Torque control</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Explorer.html">Explorer</a><ul>
@@ -108,15 +113,10 @@
 <li class="toctree-l4"><a class="reference internal" href="Explorer.html#cartesian-control">Cartesian control</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="Explorer.html#simulation-using-vesc-simulation">Simulation using VESC simulation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id2">Joint control</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id3">Cartesian control</a></li>
-</ul>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="Explorer.html#use-the-real-explorer">Use the real Explorer</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="Explorer.html#first-use-of-your-explorer">First use of your Explorer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id4">Joint control</a></li>
-<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id5">Cartesian control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id2">Joint control</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Explorer.html#id3">Cartesian control</a></li>
 </ul>
 </li>
 </ul>
@@ -177,13 +177,15 @@
 </section>
 <section id="use-an-actuator-with-vesc">
 <h2>Use an actuator with VESC<a class="headerlink" href="#use-an-actuator-with-vesc" title="Link to this heading"></a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./setcan0_500k_host.sh</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo ./setcan0_1M.sh</span>
 </pre></div>
 </div>
-<p>This script configures the can0 interface with a bitrate of 500 kbps and sets the queue length to 100 packets.</p>
+<p>This script configures the can0 interface with a bitrate of 1 Mbps and sets the queue length to 100 packets.</p>
 <p>Before lauching anything, go change the <code class="docutils literal notranslate"><span class="pre">vesc_joints_can_ids</span></code> parameter with the VESC can ids of your actuator. This parameter is in the config file <code class="docutils literal notranslate"><span class="pre">actuator_vesc_hw.yaml</span></code> of the <code class="docutils literal notranslate"><span class="pre">ros2_control_explorer</span></code> package.</p>
+<section id="position-control">
+<h3>Position control<a class="headerlink" href="#position-control" title="Link to this heading"></a></h3>
 <p>In the container, launch the <code class="docutils literal notranslate"><span class="pre">real_actuator.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_actuator</span></code> package to start the robot controller and RVIZ.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_actuator real_actuator.launch.py use_bridge:=true</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_actuator real_actuator.launch.py can_port:=&#39;can0&#39;</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -194,6 +196,29 @@
 <p>To control the actuator, you can use the GUI</p>
 <img alt="../_images/GUI_actuator.png" src="../_images/GUI_actuator.png" />
 <p>, or the <code class="docutils literal notranslate"><span class="pre">RB</span></code> and <code class="docutils literal notranslate"><span class="pre">LB</span></code> triggers of an xbox one controller.</p>
+</section>
+<section id="velocity-control">
+<h3>Velocity control<a class="headerlink" href="#velocity-control" title="Link to this heading"></a></h3>
+<p>In the container, launch the <code class="docutils literal notranslate"><span class="pre">real_actuator.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_actuator</span></code> package to start the robot controller and RVIZ.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_actuator real_actuator_velocity.launch.py can_port:=&#39;can0&#39;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching the simulation</p>
+</div>
+</section>
+<section id="torque-control">
+<h3>Torque control<a class="headerlink" href="#torque-control" title="Link to this heading"></a></h3>
+<p>In the container, launch the <code class="docutils literal notranslate"><span class="pre">real_actuator.launch.py</span></code> file from the <code class="docutils literal notranslate"><span class="pre">ros2_control_actuator</span></code> package to start the robot controller and RVIZ.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ros2 launch ros2_control_actuator real_actuator_torque.launch.py can_port:=&#39;can0&#39;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you don’t want to launch RVIZ, add <code class="docutils literal notranslate"><span class="pre">gui:=false</span></code> when launching the simulation</p>
+</div>
+</section>
 </section>
 </section>
 
