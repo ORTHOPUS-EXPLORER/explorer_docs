@@ -1,8 +1,30 @@
-  uses: dennisameling/ftp-upload-action@v1
-  with:
-    server: ${{ secrets.FTP_SERVER }}
-    username: ${{ secrets.FTP_USER }}
-    password: ${{ secrets.FTP_PASSWORD }}
-    local_dir: ./build/htlm/ # Should always end with /
-    server_dir: ./ # Should always end with /
+name: Deploy to FTP
 
+on:
+  # Trigger the workflow on push events to the main branch
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Assuming you have a build step, for example, for a static site
+      #- name: Build project
+      #  run: |
+          # Your build command here, e.g., for a static site generator
+          npm install
+          npm run build
+
+      - name: Upload to FTP
+        uses: dennisameling/ftp-upload-action@v1
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: ./build/html/ # Ensure this is the correct directory for your build output
+          server_dir: ./ # Upload to the root directory of your FTP server
