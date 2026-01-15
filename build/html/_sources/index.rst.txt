@@ -15,5 +15,6 @@ Welcome to Explorer's documentation!
    Hardware.rst
    Firmware.rst
    Software.rst
+   User_interfaces.rst
    
 

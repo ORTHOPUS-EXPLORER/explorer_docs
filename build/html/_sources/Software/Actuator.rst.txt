@@ -12,7 +12,7 @@ To launch the simulation in Gazebo, launch the ``simu_actuator.launch.py`` file 
 
 .. code-block:: console
 
-    ros2 launch ros2_control_actuator simu_actuator.launch.py
+    ros2 launch ros2_control_actuator simu_actuator.launch.py 
 
 This script launches RViz, Gazebo, the robot controller, and all necessary files to send commands to the controller.
 
